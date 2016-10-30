@@ -22,8 +22,13 @@ Gem::Specification.new do |s|
     "lib/crossroads/router.rb",
     "lib/crossroads/version.rb"
   ]
+  s.test_files = [
+    "spec/spec_helper.rb",
+    "spec/crossroads/match_spec.rb"
+  ]
   s.require_paths = ['lib']
   s.homepage    = 'https://github.com/johnsusi/clearwater-crossroads/'
   s.license     = 'MIT'
-  s.add_runtime_dependency 'clearwater', '> 0.9', '< 2'
+  s.add_runtime_dependency 'clearwater', '=1.0.0.rc4'
+  s.add_development_dependency 'rspec', "~> 3.3"
 end

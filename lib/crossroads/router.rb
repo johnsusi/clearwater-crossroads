@@ -2,7 +2,9 @@ module Crossroads
   class Router
     include Clearwater::Component
 
-    def initialize(attributes = {}, component: nil, render: nil, &block)
+    def initialize(attributes = {}, &block)
+      component = attributes.delete(:component)
+      render    = attributes.delete(:render)
       @render = ->(params) { component.new(params) } if component
       @render = render               if render
       @render = block                if block
@@ -28,4 +30,10 @@ module Crossroads
     end
 
   end
+
+  def router(location = nil, &block)
+    Router.new({location: location}, &block)
+  end
+
+  module_function :router
 end

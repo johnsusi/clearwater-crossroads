@@ -15,7 +15,7 @@ module Crossroads
             Regexp.escape(part)
           else
             @names << part[1..-1]
-            '([^\/.+])'
+            '([^\/.]+)'
           end
         }.join('\/') )
       end
@@ -29,6 +29,7 @@ module Crossroads
     end
 
     def render
+      # puts "matched? #{Router.matched.last == true}, loc: #{Router.locations.last}, pat: #{@pattern.to_s}"
       return nil if Router.matched.last == true
       location = Router.locations.last
       md = @pattern.match(location)
@@ -46,6 +47,14 @@ module Crossroads
       Router.matched.push(true)
 
       return result
+    ensure
+      #puts "~matched"
     end
   end
+
+  def match(pattern, &block)
+    Match.new(pattern: pattern, &block)
+  end
+
+  module_function :match
 end

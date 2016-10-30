@@ -8,13 +8,13 @@ class Layout
   include Crossroads
 
   def render
-    Router.new do
+    router do
       div({ id: 'app' }, [
         header({ class_name: 'main-header' }, [
           h1('Hello, world!'),
         ]),
-        Match.new(pattern: '/articles', component: Articles),
-        Miss.new(component: Articles)
+        match('/articles') { Articles.new },
+        miss { link('/articles') { 'List articles' } }
       ])
     end
   end

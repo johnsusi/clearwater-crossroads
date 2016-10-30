@@ -14,4 +14,10 @@ module Crossroads
       div(@attributes, [@render.call()]) if !Router.matched.last
     end
   end
+
+  def miss(&block)
+    Miss.new(&block)
+  end
+
+  module_function :miss
 end

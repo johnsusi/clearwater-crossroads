@@ -22,19 +22,17 @@ class App
   include Crossroads
 
   def render
-    Router.new do
+    router do
       div({id: 'app'}, [
         h1('Hello world'),
         ul([
-          li([ Link(to: '/',         [ 'Home'     ]) ]),
-          li([ Link(to: '/about',    [ 'About'    ]) ]),
-          li([ Link(to: '/articles', [ 'Articles' ]) ])
+          li([ link('/')         { 'Home'     } ]),
+          li([ link('/about')    { 'About'    } ]),
+          li([ link('/articles') { 'Articles' } ])
         ]),
-        Match.new(pattern: '/about',    component: About),
-        Match.new(pattern: '/articles', component: Article),
-        Miss.new do
-          div('Welcome')
-        end
+        match('/about')    { About.new },
+        match('/articles') { Articles.new},
+        miss { div('Welcome') }
       ])
     end
   end
@@ -52,3 +50,16 @@ DISCLAIMER: This is still very early work. Do not depend on this gem in
             production.
 
 [Clearwater]: https://github.com/clearwater-rb/clearwater
+
+Try it out for yourself
+
+```sh
+git clone https://github.com/johnsusi/clearwater-crossroads crossroads
+cd crossroads/demo
+bundle install
+bundle exec rackup
+````
+
+and point your browser to http://localhost:9292/
+
+
