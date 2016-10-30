@@ -26,9 +26,9 @@ class App
       div({id: 'app'}, [
         h1('Hello world'),
         ul([
-          li(to: '/',         [ 'Home' ]),
-          li(to: '/about',    [ 'About' ]),
-          li(to: '/articles', [ 'Articles' ])
+          li([ Link(to: '/',         [ 'Home'     ]) ]),
+          li([ Link(to: '/about',    [ 'About'    ]) ]),
+          li([ Link(to: '/articles', [ 'Articles' ]) ])
         ]),
         Match.new(pattern: '/about',    component: About),
         Match.new(pattern: '/articles', component: Article),
