@@ -1,4 +1,4 @@
-Declarative router for Clearwater
+Declarative router for [Clearwater]
 --------------------------------------------------------------------------------
 
 Being a long time sceptic about the need for a router in single page apps I was
@@ -50,3 +50,5 @@ for others to play with.
 
 DISCLAIMER: This is still very early work. Do not depend on this gem in
             production.
+
+[Clearwater]: https://github.com/clearwater-rb/clearwater

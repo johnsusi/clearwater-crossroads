@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.version     = Crossroads::VERSION
   s.date        = '2016-10-29'
   s.summary     = "A declarative router for Clearwater"
-  s.description = s.summary
+  s.description = "Render the router just like you would any other component. Use Matches and Miss for selecting the current path being visible."
   s.authors     = ["John Susi"]
   s.email       = 'john@susi.se'
   s.files       = [
@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
     "lib/crossroads/version.rb"
   ]
   s.require_paths = ['lib']
-  s.homepage    = 'http://rubygems.org/gems/clearwater-crossroads'
+  s.homepage    = 'https://github.com/johnsusi/clearwater-crossroads/'
   s.license     = 'MIT'
   s.add_runtime_dependency 'clearwater', '> 0.9', '< 2'
 end
